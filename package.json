@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "mpvue": "^1.0.10",
+    "mpvue-weui": "^1.0.4",
     "vuex": "^2.3.1"
   },
   "devDependencies": {

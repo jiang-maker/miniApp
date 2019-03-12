@@ -1,30 +1,13 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
-
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+  <div class="container">
+    <mp-button type="primary" size="small">默认按钮</mp-button>
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
-import {test} from '@/getData/test'
+// import {getCloud} from '@/getData/test'
+import mpButton from 'mpvue-weui/src/button'
 
 export default {
   data () {
@@ -35,37 +18,20 @@ export default {
   },
 
   components: {
-    card
+    card,
+    mpButton
   },
 
   methods: {
-    bindViewTap () {
-      const url = '../logs/main'
-      wx.navigateTo({ url })
-    },
-    getUserInfo () {
-      // 调用登录接口
-      wx.login({
-        success: () => {
-          wx.getUserInfo({
-            success: (res) => {
-              this.userInfo = res.userInfo
-            }
-          })
-        }
-      })
-    },
-    clickHandle (msg, ev) {
-      console.log('clickHandle:', msg, ev)
-    }
   },
 
   async created () {
-  // 调用应用实例的方法获取全局数据
-    // this.getUserInfo()
-    let res = await test()
-    console.log(res)
-    console.log('object')
+    // let obj = {
+    //   cityname: '深圳',
+    //   key: '01e7d10012613181d03c538d00f6dcb0'
+    // }
+    // let res = await getCloud(obj)
+    // console.log(res + 'last')
   }
 }
 </script>

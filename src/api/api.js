@@ -1,6 +1,7 @@
-const host = 'https://test.orvibo.com/minapp/'
+const heweather = 'https://free-api.heweather.net/s6/weather'
+
 export {
-  host
+  heweather
 }
 // 请求封装
 function request (url, method, data, header = {}) {
@@ -9,7 +10,7 @@ function request (url, method, data, header = {}) {
   })
   return new Promise((resolve, reject) => {
     wx.request({
-      url: host + url, // 仅为示例，并非真实的接口地址
+      url: heweather + url, // 仅为示例，并非真实的接口地址
       method: method,
       data: data,
       header: {
